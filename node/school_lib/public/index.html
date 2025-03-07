@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="login" >登录</button>
+    <button id="add" >添加</button>
+    <button id="userinfo" >登录用户信息</button>
+</body>
+</html>
+
+<script>
+    let authorization = null
+    add.onclick = () => {
+        fetch('http://127.0.0.1:9527/api/student/:1?name=张三', { headers: {'content-type': 'application/json', authorization }, method: 'PUT', credentials: 'include' }).then(res => res.json()).then(res => console.log(res))
+    }
+
+
+    login.onclick = () => {
+        fetch('http://127.0.0.1:9527/api/login?loginId=root&loginPwd=123456', {
+            headers: {
+                'content-type': 'application/json',
+            },
+            credentials: 'include',
+            method: 'POST'
+        }).then(r => {
+            authorization = r.headers.get('authorization')
+            return r.json()
+        }).then(r => {
+            console.log(r)
+            location.href = '/'
+        })
+    }
+
+    userinfo.onclick = () => {
+        fetch('http://127.0.0.1:9527/api/login/whoami', {
+            method: 'GET',
+            headers: {
+                authorization
+            }
+        }).then(r => r.json()).then(r => {
+            console.log(r)
+        })
+    }
+</script>

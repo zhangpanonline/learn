@@ -1,0 +1,106 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontSize": 18,
+  "editor.formatOnSave": true,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.shell.windows": "D:/tools/Git/Git/bin/bash.exe",
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "semi": false,
+      "singleQuote": true,
+      "trailingComma": "none"
+    }
+  },
+  "prettier.semi": false, // 分号
+  "prettier.singleQuote": true, // 单引号
+  "prettier.trailingComma": "none", // 去掉结尾的逗号
+  "editor.tabSize": 2,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.compactFolders": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "git.path": "D:/tools/Git/Git/cmd/git.exe",
+  "breadcrumbs.enabled": true,
+  "[nginx]": {
+    "editor.defaultFormatter": "raynigon.nginx-formatter"
+  },
+  "editor.largeFileOptimizations": false,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "keyword.other.dotenv",
+        "settings": {
+          "foreground": "#FF000000"
+        }
+      }
+    ]
+  },
+  "liveServer.settings.port": 0,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit"
+  },
+  "vue.autoInsert.dotValue": true,
+  "editor.quickSuggestions": {
+    "strings": true,
+    "other": true,
+    "comments": true
+  },
+  "window.zoomLevel": 1,
+  "github.copilot.advanced": {
+    "authProvider": "github-enterprise"
+  },
+  "github-enterprise.uri": "http://053E06FB73A843FF82C92FDDA3BAC08D@152.136.138.142:28443",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "remote.extensionKind": {
+    "GitHub.copilot": ["ui"],
+    "github.copilot-chat": "ui"
+  },
+  "i18n-ally.localesPaths": ["language"],
+  "Codegeex.RepoIndex": true,
+  "Codegeex.CompletionDelay": 0.1,
+  "Codegeex.SidebarUI.LanguagePreference": "中文"
+}

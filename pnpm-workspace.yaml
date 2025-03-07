@@ -1,6 +1,5 @@
 packages:
-  # packages/ 直接子目录中的所有包
-  - 'node/*'
   - 'd3/*'
-  - 'webgl/*'
+  - 'node/*'
   - 'tensorflow/*'
+  - 'webgl/*'
