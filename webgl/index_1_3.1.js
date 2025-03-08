@@ -6,17 +6,25 @@ const gl = canvas.getContext('webgl2')
 if (!gl) {
     alert('浏览器不支持webgl2')
 }
-
-// 顶点着色器：使用裁剪空间坐标
+// 顶点着色器：使用屏幕坐标(即像素坐标)
 const vertexShaderSource = `#version 300 es
-// 定义接收顶点位置的输入变量
-in vec4 a_position;
-
+in vec2 a_position;
+// 定义接收屏幕尺寸的输入变量
+uniform vec2 u_resolution;
+out vec4 v_color;
 void main() {
-    // 直接将传入的顶点坐标赋值给gl_Position系统变量，表示该着色器仅做坐标的原始传递，适用于简单的2D图形绘制
-    gl_Position = a_position;
+    // 顶点坐标转换为裁剪空间坐标
+    // 顶点坐标范围：[-1, 1]
+    // 屏幕坐标范围：[0, canvas.width]
+    // 因此需要将屏幕坐标转换为裁剪空间坐标
+    // 转换公式：gl_Position = a_position * 2.0 - 1.0;
+    vec2 zeroToOne = a_position / u_resolution;
+    vec2 zeroToTwo = zeroToOne * 2.0;
+    vec2 clipSpace = zeroToTwo - 1.0;
+    gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
+    v_color = gl_Position * 0.5 + 0.5;
 }
-`;
+`
 
 // 片段着色器
 const fragmentShaderSource = `#version 300 es
@@ -24,9 +32,9 @@ const fragmentShaderSource = `#version 300 es
 precision highp float;
 // 定义输出颜色变量outColor
 out vec4 outColor;
+in vec4 v_color;
 void main() {
-    // 所有像素固定输出为紫色
-    outColor = vec4(1, 0.0, 0.5, 1.0);
+    outColor = v_color;
 }
 `
 
@@ -67,24 +75,13 @@ const program = createProgram(gl, vertexShader, fragmentShader)
 
 // 返回了给定WebGLProgram对象中某属性的下标指向位置，第二个参数表示需要获取下标指向位置的 DOMString 属性参数名
 const positionAttributeLocation = gl.getAttribLocation(program, 'a_position')
+const resolutionUniformLocation = gl.getUniformLocation(program, 'u_resolution')
+
+
 
 const positionBuffer = gl.createBuffer()
 
 gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
-
-const positions = [
-    -1, -1,
-    -1, 0,
-    0, -1,
-    1, 1,
-    0, 1,
-    1, 0,
-];
-// 初始化并创建缓冲区对象的数据存储
-// gl.STATIC_DRAW：数据不会或几乎不会改变。
-// gl.DYNAMIC_DRAW：数据会被改变很多。
-// gl.STREAM_DRAW：数据只会改变一次或几次。
-gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW)
 
 // 创建属性状态集合，顶点数组对象
 // const vao = gl.createVertexArray()
@@ -112,20 +109,18 @@ resizeCanvasToDisplaySize(gl.canvas)
 // 这行代码告诉WebGL将裁剪空间的-1~+1映射到x轴0~gl.canvas.width和y轴0~gl.canvas.height
 gl.viewport(0, 0, gl.canvas.width, gl.canvas.height)
 
-// 获取当前视口
-console.log(gl.getParameter(gl.VIEWPORT))
-
 // 清空画布, 我们设置画布的清空颜色为0,0,0,0(分别表示为红色，绿色，蓝色，透明度)。所以这个画布是透明的
 gl.clearColor(0, 0, 0, 0)
 
 // 告诉WebGL运行着色器程序
 gl.useProgram(program)
 
-// 从向量数组中绘制图元
-// 第一个参数是图元类型，这里是gl.TRIANGLES，表示绘制三角形
-// 第二个参数是从缓冲区中读取数据的起始位置，这里是0，表示从缓冲区的第一个位置开始读取数据
-// 第三个参数指定绘制需要使用到多少个点，这里是3，表示绘制3个顶点
-var primitiveType = gl.TRIANGLES;
-var offset = 0;
-var count = 6; // 由于counter被设置为3, 顶点着色器就会运行3次
-gl.drawArrays(primitiveType, offset, count)
+gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height)
+
+gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+    // 0, 0, 1920, 911
+    0, 0, 0, 911, 1920, 911, 
+    0, 0, 1920, 0, 1920, 911
+]), gl.STATIC_DRAW)
+
+gl.drawArrays(gl.TRIANGLES, 0, 6)
