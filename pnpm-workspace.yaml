@@ -1,5 +1,5 @@
 packages:
-  - 'd3/*'
-  - 'node/*'
-  - 'tensorflow/*'
-  - 'webgl/*'
+  - 'd3/**'
+  - 'node/**'
+  - 'tensorflow/**'
+  - 'webgl/**'
