@@ -4,3 +4,4 @@ packages:
   - 'tensorflow/**'
   - 'webgl/**'
   - 'microservice/**'
+  - 'typeScript/**'

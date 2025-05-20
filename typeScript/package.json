@@ -1,0 +1,13 @@
+{
+  "name": "typeScript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pnpx nodemon --watch src -e ts --exec pnpx ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "", 
+  "license": "ISC",  
+  "packageManager": "pnpm@10.11.0"
+}
