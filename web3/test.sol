@@ -96,26 +96,37 @@ pragma solidity ^0.8.26;
 *       assert：确保入参为真
 *       自定义错误：错误信息越长，越消耗gas，所以可以自定以错误，来节省gas
 */
-contract Error {
-    function useRequire(uint x) external pure {
-        // 如果大于10会报错
-        require(x <= 10, "i > 10");
-    }
+// contract Error {
+//     function useRequire(uint x) external pure {
+//         // 如果大于10会报错
+//         require(x <= 10, "i > 10");
+//     }
 
-    function useRevert(uint x) external pure {
-        if (x > 10) {
-            revert("i > 10");
-        }
-    }
+//     function useRevert(uint x) external pure {
+//         if (x > 10) {
+//             revert("i > 10");
+//         }
+//     }
 
-    function useAssert(uint x) external pure {
-        assert(x <= 10);
-    }
+//     function useAssert(uint x) external pure {
+//         assert(x <= 10);
+//     }
 
-    error MyError(address, uint);
-    function useCustomError(uint x) public view {
-        if (x > 10) {
-            revert MyError(msg.sender, x);
-        }
-    }
+//     error MyError(address, uint);
+//     function useCustomError(uint x) public view {
+//         if (x > 10) {
+//             revert MyError(msg.sender, x);
+//         }
+//     }
+// }
+
+/**
+* 函数装饰器
+* Function modifier —— 代码重用
+* Basic inputs sandwhich
+*/
+contract FnModifier {
+    bool public paused;
+    uint public count;
+
 }
