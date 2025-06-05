@@ -1,26 +1,16 @@
+import { useState } from 'react'
 
-function Button({ onClick, children }) {
-    return (
-        <button onClick={e => {
-            e.stopPropagation()
-            onClick()
-        }}>
-            {children}
-        </button>
-    )
-}
+export default function Counter() {
+  const [ count, setCount ] = useState(0)
 
-export default function Toolbar() {
   return (
-    <div className="bg-red" onClick={() => alert('你点击了 toolbar ！')}>
-      <Button onClick={() => {
-        alert('正在播放！')
-      }}>
-        播放电影
-      </Button>
-      <Button onClick={() => alert('正在上传！')}>
-        上传图片
-      </Button>
-    </div>
-  );
+    <>
+      <h1>{count}</h1>
+      <button onClick={() => {
+        setCount(count => count + 1)
+        setCount(count => count + 1)
+        setCount(count => count + 1)
+      }}>Click Me</button>
+    </>
+  )
 }

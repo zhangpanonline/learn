@@ -6,3 +6,4 @@ packages:
   - 'microservice/**'
   - 'typeScript/**'
   - 'react/**'
+  - 'nextjs/**'
