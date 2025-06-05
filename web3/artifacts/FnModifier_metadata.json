@@ -1,0 +1,73 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "count",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "函数装饰器 Function modifier —— 代码重用 Basic inputs sandwhich",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"web3/test.sol": "FnModifier"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"web3/test.sol": {
+			"keccak256": "0x6328938bca3e784dcf996c894c349804b7ec35b25a017f800fd86c7540a027c6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://23b67d1b72080e5f72c8b7510d1e4bc80889cdad934da0d30e33960ef779d2c9",
+				"dweb:/ipfs/Qmed8JVx9vvQYiqf8tXCaDzMrALb4r4Ave6DFUeRVUzU99"
+			]
+		}
+	},
+	"version": 1
+}

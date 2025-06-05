@@ -1,0 +1,115 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "MyError",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "useAssert",
+				"outputs": [],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "useCustomError",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "useRequire",
+				"outputs": [],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "useRevert",
+				"outputs": [],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "错误：有三种抛出方式，并且gas消费剩余值会返回，状态变量也会修改回之前状态       require：最常用情景是验证输入是否满足要求或者做一些权限的控制，去控制谁可以调用我们的函数，抛出错误       revert：检查入参       assert：确保入参为真       自定义错误：错误信息越长，越消耗gas，所以可以自定以错误，来节省gas",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"web3/test.sol": "Error"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"web3/test.sol": {
+			"keccak256": "0x37c049c8c8c0aa7a2fbe1823bb70f60f8dbe1b4e67039b6b95e38c8963aea1ac",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4f81bf17792c916a9887386d65a66908579995f43dc0dc4eeec4ddede4a288f4",
+				"dweb:/ipfs/QmX54EsSQCjzyXvovZjJArMHyuF6G6v9oUJojQDkLHcWe9"
+			]
+		}
+	},
+	"version": 1
+}
