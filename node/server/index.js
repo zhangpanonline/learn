@@ -59,7 +59,6 @@ const server = https.createServer(options, (req, res) => {
 // 启动服务器
 const PORT = 443;
 server.listen(PORT, () => {
-  console.log(`HTTPS静态资源服务器运行在 https://localhost:${PORT}/`);
-  console.log('注意：浏览器会提示证书不安全，点击"高级"->"继续前往"即可');
-  console.log(`访问示例: https://192.168.0.170:8888/login_logo.png`);
+  console.log(`https://[2409:8a70:3a79:a9c1:4805:e2a5:95:3]/logo.jpg`);
+  console.log(`https://mp.zhangpan.online/logo.jpg`);
 });
