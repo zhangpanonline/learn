@@ -58,7 +58,7 @@ const server = https.createServer(options, (req, res) => {
 
 // 启动服务器
 const PORT = 443;
-server.listen(PORT, () => {
+server.listen(PORT, '::', () => {
   console.log(`https://[2409:8a70:3a79:a9c1:4805:e2a5:95:3]/logo.jpg`);
   console.log(`https://mp.zhangpan.online/logo.jpg`);
 });
