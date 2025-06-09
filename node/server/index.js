@@ -6,8 +6,7 @@ const url = require('url');
 // 读取 HTTPS 证书和私钥
 const options = {
   key: fs.readFileSync(path.join(__dirname, 'key.pem')),
-  cert: fs.readFileSync(path.join(__dirname, 'cert.pem')),
-  passphrase: 'zhangpa',
+  cert: fs.readFileSync(path.join(__dirname, 'fullchain.pem')),
 };
 
 // 创建 HTTPS 服务器
