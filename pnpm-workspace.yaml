@@ -1,10 +1,12 @@
 packages:
-  - 'd3/**'
-  - 'node/**'
-  - 'tensorflow/**'
-  - 'webgl/**'
-  - 'microservice/**'
-  - 'typeScript/**'
-  - 'react/**'
-  - 'nextjs/**'
-  - 'nestjs/**'
+  - d3/**
+  - node/**
+  - tensorflow/**
+  - webgl/**
+  - microservice/**
+  - typeScript/**
+  - react/**
+  - nextjs/**
+  - nestjs/**
+ignoredBuiltDependencies:
+  - core-js-pure
