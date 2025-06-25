@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 
 // const inter = Inter({ subsets: ['latin'] })
 
+import { Provider } from 'react-redux';
+import { store } from '@/store';
+
 export const metadata: Metadata = {
     title: 'auth',
     description: 'auth relation',
@@ -14,7 +17,11 @@ export default function RootLayout({ children }: Readonly<{
 }>) {
     return (
         <html lang='zh_cn'>
-            <body>{children}</body>
+            <body>
+                <Provider store={store}>
+                    {children}
+                </Provider>
+            </body>
         </html>
     )
 }
