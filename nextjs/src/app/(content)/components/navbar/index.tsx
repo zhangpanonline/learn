@@ -8,7 +8,7 @@ export default function NavBar() {
             <div className="navbar-start" >
                 <ToggleButton></ToggleButton>
             </div>
-            <div className="navbar-center" >navbar-center</div>
+            <div className="navbar-center" ></div>
             <div className="navbar-end" >
                 <Theme></Theme>
                 <LoginButton></LoginButton>

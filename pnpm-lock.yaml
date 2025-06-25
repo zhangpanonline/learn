@@ -198,6 +198,9 @@ importers:
 
   nextjs:
     dependencies:
+      '@reduxjs/toolkit':
+        specifier: ^2.8.2
+        version: 2.8.2(react-redux@9.2.0(@types/react@19.1.6)(react@19.1.0)(redux@5.0.1))(react@19.1.0)
       daisyui:
         specifier: ^5.0.43
         version: 5.0.43
@@ -210,6 +213,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
+      react-redux:
+        specifier: ^9.2.0
+        version: 9.2.0(@types/react@19.1.6)(react@19.1.0)(redux@5.0.1)
       swr:
         specifier: ^2.3.3
         version: 2.3.3(react@19.1.0)
