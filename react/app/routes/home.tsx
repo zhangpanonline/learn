@@ -1,6 +1,7 @@
 import type { Route } from "./+types/home";
 import Game from "../game";
-import Responding2Events from '../responding2Events'
+import Demo from '../demo'
+import TaskList from '../taskList'
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -11,5 +12,6 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   // return <Game />;
-  return <Responding2Events />;
+  return <Demo />;
+  // return <TaskList />;
 }
