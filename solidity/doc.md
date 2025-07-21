@@ -7,13 +7,14 @@
     区块链创建了一个 evm 实例，执行合约的字节码，对数据进行处理运算
 
 * EVM 的存储结构：
-      Stack（栈）
-          每个栈有1024个slot（槽位）,如果超出数量会报错“stack too depp"
-          每个slot空间是 32字节，也就是256个比特位
-
+    Stack（栈）
+  ​	    EVM 执行栈
+  ​        每个栈有1024个slot（槽位）,如果超出数量会报错“stack too depp"
+  ​        每个slot空间是 32字节，也就是256个比特位
+  
     Memory
-        evm 自身的内存
-    
+        EVM 临时内存
+  
     Storage
         存储在链上永久的数据
 
@@ -36,10 +37,10 @@
             enum
         字节
             bytes，最大32位，即 bytes32。
-    
+  
     引用类型
         长度未知或者超过32bit，实际数据在 Memory 或 Storage，Stack 里只有一个 keccack256 类型的哈希，指向 Memory 或 Storage 里存储的数据位置。
-    
+  
         数组
         字符串
         结构体
@@ -64,5 +65,7 @@
   | view         | ✅            | ❌            | ❌       |                                                              |
   | default      | ✅            | ✅            |         |                                                              |
   | payable      |              |              | ✅       | 1. 函数允许**接收以太币**<br />2. 只有标记为 `payable` 的函数才能接收以太币<br />3.**会消耗 Gas**，因为它涉及到外部交易和转账 |
+
+* StateDB 是什么？
 
   
