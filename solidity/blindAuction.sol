@@ -44,6 +44,7 @@ contract BlindAuction {
     }
     modifier onlyAfter(uint time) {
         if (block.timestamp <= time) revert TooEarly(time);
+        _;
     }
 
     constructor(uint biddingTime, uint revealTime, address payable beneficiaryAddress) {
@@ -67,6 +68,9 @@ contract BlindAuction {
 
     /// 披露你的盲拍出价
     /// 对于所有正确披露的无效出价以及除最高出价以外的所有出价，您都将获得退款
-    // TODO
-
+    function reveal(uint[] calldata values, bool[] calldata fakes, bytes32[] calldata secrets) external onlyAfter(biddingEnd) onlyBefore(revealEnd) {
+        uint length = bids[msg.sender].length;
+        require(values.length == length);
+        // TODO
+    }
 }
