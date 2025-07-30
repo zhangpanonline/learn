@@ -49,7 +49,7 @@ contract Purchase {
     // 如果是奇数，除法会截断。
     // 通过乘法检查它不是一个奇数
     constructor() payable {
-        seller = payable(msg.sender)
+        seller = payable(msg.sender);
         value = msg.value / 2;
         if ((2 * value) != msg.value) revert ValueNotEven();
     }
