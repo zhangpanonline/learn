@@ -66,6 +66,32 @@ contract Purchase {
         seller.transfer(address(this).balance);
     }
 
-    // TODO
+    /// 买方确认购买
+    /// 交易必须包括 2 * value 以太币
+    /// Ether 将被锁住，直到调用 confirmReceived
+    function confirmPurchase() external inState(State.Created) condition(msg.value == (2 * value)) payable {
+        emit PurchaseConfirmed();
+        buyer = payable(msg.sender);
+        state = State.Locked;
+    }
+
+    /// 确认您(买方)已经收货
+    /// 这将释放已锁定的以太币
+    function confirmReceived() external onlyBuyer inState(State.Locked) {
+        emit ItemReceived();
+        state = State.Release;
+        
+        buyer.transfer(value);
+    }
+
+    /// 该功能为卖家退款
+    /// 即退还卖家锁定的资金
+    function refundSeller() external onlySeller inState(State.Release) {
+        emit SellerRefunded();
+
+        state = State.Inactive;
+
+        seller.transfer(3 * value);
+    }
 
 }
