@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, PrimaryColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, PrimaryColumn, Column, OneToOne } from "typeorm"
+import { IdCard } from "./IdCard"
 
 @Entity()
 export class User {
@@ -27,5 +28,10 @@ export class User {
 
     @Column('float')
     other: number
+
+    @OneToOne(() => IdCard, card => card.user, {
+        cascade: true // 级联
+    })
+    card: IdCard
 
 }

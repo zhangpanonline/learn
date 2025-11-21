@@ -24,7 +24,7 @@ export class IdCard {
     @Column()
     email: string;
 
-    @OneToOne(() => User) // 建立与User实体间的一对一关系
+    @OneToOne(() => User, user => user.card) // 建立与User实体间的一对一关系
     @JoinColumn() // 维护一个外键，会自动生成外键的id
     user: User;
 }
