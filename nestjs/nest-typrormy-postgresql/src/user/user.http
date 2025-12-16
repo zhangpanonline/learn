@@ -1,0 +1,33 @@
+@protocol = http://
+@hostname = localhost
+@port = 3000
+@BASE_URL = {{protocol}}{{hostname}}:{{port}}/user
+@createdAt = {{$datetime iso8601}}
+
+### 创建用户
+POST {{BASE_URL}}/
+Content-Type: application/json
+
+{
+    "name": "zhangsan",
+    "sex": "男",
+    "createTime": "{{createdAt}}",
+    "updateTime": "{{createdAt}}"
+}
+
+### 查询所有用户
+GET {{BASE_URL}}/ HTTP/1.1
+
+### 查询指定用户
+GET {{BASE_URL}}/6
+
+### 修改用户
+PATCH {{BASE_URL}}/5
+Content-Type: application/json
+
+{
+    "name": "张三"
+}
+
+### 删除指定用户
+DELETE {{BASE_URL}}/4

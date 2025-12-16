@@ -1,0 +1,7 @@
+@protocol = http://
+@hostname = localhost
+@port = 3000
+@BASE_URL = {{protocol}}{{hostname}}:{{port}}
+
+###
+GET {{BASE_URL}}
